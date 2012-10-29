@@ -181,7 +181,7 @@
       </div>
 </xsl:template>
 
-<xsl:template match="graph[@name='Frontik 95']" mode="legend">
+<xsl:template match="graph[starts-with(@name,'Frontik')]" mode="legend">
     <div class="legend">
             <span class="legend__item" style="color:#002C80">hh-session</span>
             <span class="legend__item" style="color:#CCCCCC">sofea</span>
