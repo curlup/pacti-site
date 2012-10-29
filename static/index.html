@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+
+    <style type="text/css">
+    @import "/static/jquery.countdown.css";
+
+    </style>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/jquery.countdown.js"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            $('#CountDown').countdown({ until: +300 });
+        });
+    </script>
+    <script type="text/javascript">
+            $('#CountDown2').countdown({ until: +301 });
+    </script>
+</head>
+<body>
+    <div id="CountDown">
+    </div>
+    <div id="CountDown2">
+    </div>
+
+</body>
+</html>
