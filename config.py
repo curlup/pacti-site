@@ -1,6 +1,12 @@
 #coding:utf8
 import os
 
+import Queue
+
+msgs = Queue.Queue(3)
+msgs.put(['restarted'])
+current_msg = None
+msg_to = (0,2)
 
 XSL_root = os.path.normpath(os.path.join(os.path.dirname(__file__), "xsl"))
 XML_root = os.path.normpath(os.path.join(os.path.dirname(__file__), "../xml"))

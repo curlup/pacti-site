@@ -100,25 +100,31 @@ $(function () {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Обратный отсчет</a>
+          <a class="brand" href="#">Flash message!</a>
         </div>
       </div>
     </div>
 
     <div class="container">
-
-      <h1>Время</h1>
-
-      <p>
-        <span class="demoLabel">Имя:</span>
-        <div id="u2"></div>
-        <span id="u1"></span>
-      </p>
-
+	<xsl:apply-templates/>
     </div>
 
   </body>
 </html>
+</xsl:template>
+
+<xsl:template match="form">
+<div class="row">
+<form method="post" class="form-horizontal">
+    <textarea name="msg" placeholder="Type something">
+    </textarea>
+    <button type="submit" class="btn">Submit</button>
+</form>
+</div>
+</xsl:template>
+
+
+<xsl:template match="ok">
 </xsl:template>
 
 
