@@ -115,11 +115,19 @@ $(function () {
 
 <xsl:template match="form">
 <div class="row">
+<div class="span9">
 <form method="post" class="form-horizontal">
+    <fieldset>
+    <label>message text here:</label>
     <textarea name="msg" placeholder="Type something">
-    </textarea>
+    </textarea> <br/>
+    <label>timeout (integer, optional) here:</label>
+    <input name="timeout" placeholder="eq or more than 11 ?"/>
+    <br/>
     <button type="submit" class="btn">Submit</button>
+    </fieldset>
 </form>
+</div>
 </div>
 </xsl:template>
 

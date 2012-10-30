@@ -19,7 +19,7 @@ def get_current(handler):
         handler.config.current_msg = None
         new_msg = handler.config.msgs.get_nowait()
         if len(new_msg) < 2:
-            new_msg += [datetime.timedelta(*handler.config.msg_to)]
+            new_msg += [handler.config.msg_to]
         handler.config.current_msg = new_msg + [datetime.datetime(*time.localtime()[:6])]
     return handler.config.current_msg
 

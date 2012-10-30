@@ -10,7 +10,7 @@
       body{
         background:red;
         font-family:Tahoma, Arial;
-        font-size:64px;
+        font-size:94px;
 //        width:1850px;
         margin:0;
         padding-left:10px;

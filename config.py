@@ -2,11 +2,12 @@
 import os
 
 import Queue
+import datetime
 
 msgs = Queue.Queue(3)
-msgs.put(['restarted'])
+msgs.put(['restarted', datetime.timedelta(0,1)])
 current_msg = None
-msg_to = (0,2)
+msg_to = datetime.timedelta(0,3)
 
 XSL_root = os.path.normpath(os.path.join(os.path.dirname(__file__), "xsl"))
 XML_root = os.path.normpath(os.path.join(os.path.dirname(__file__), "../xml"))

@@ -7,6 +7,7 @@ import frontik.handler
 from frontik.doc import Doc
 from frontik import etree
 import urlparse
+import datetime
 
 
 class Page(frontik.handler.PageHandler):
@@ -18,8 +19,20 @@ class Page(frontik.handler.PageHandler):
     
     def post_page(self):
         self.set_xsl('pacti.xsl')
-        msg = urlparse.parse_qs(self.request.body).get("msg")
+
+        msg = urlparse.parse_qs(self.request.body).get("msg",[])[:1]
+        timeout = urlparse.parse_qs(self.request.body).get("timeout",[])[:1]
+        self.log.debug('{0} :msg\n{1} :timeo'.format(msg, timeout))
+        if timeout:
+            try:
+                
+                timedelta = [datetime.timedelta(0,int(timeout[0]))]
+            except Exception as e:
+                self.log.exception(e)
+                timedelta = []
         if msg:
-            self.config.msgs.put_nowait(msg)
+            self.config.msgs.put_nowait(msg + timedelta)
+            self.log.debug('{0} \nputted'.format(msg + timedelta))
+
         self.redirect(self.request.headers.get("Referer","/"))
         
