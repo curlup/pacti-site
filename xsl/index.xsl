@@ -6,7 +6,7 @@
   <head>
     <title>Состояние системы</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="refresh" content="11"/>
+    <meta http-equiv="refresh" content="41"/>
     <style><![CDATA[
       body{
         background:#fff;
@@ -46,6 +46,7 @@
         overflow:hidden;
 //        float: left;
         display:inline-block;
+        border: 1px solid;
       }
       .place{
         width:450px;
@@ -171,11 +172,14 @@
 <xsl:template match="graph">
       <div class="place">
         <h1 class="name"><span class="name__type"><xsl:value-of select="@name"/></span>&#160;<xsl:value-of select="../@name"/></h1>
-        <div class="axis" style="overflow:hidden">Запросов в секунду</div>
+        <div class="axis" style="overflow:hidden">><xsl:value-of select="@yaxis"/></div>
 <!--
         <div class="graph" data="10" style="background-image:url('http://cacti.hh.ru/graph_image.php?local_graph_id={@id}&amp;rra_id=5')">
 -->
         <div class="graph" data="10" style="background-image:url('http://cacti.hh.ru/graph_image.php?local_graph_id={@id}&amp;{@query}')">
+<!--
+        <div class="graph" data="10"><img src="http://cacti.hh.ru/graph_image.php?local_graph_id={@id}&amp;{@query}"/>
+-->
           <div class="graph__line">&#160;</div>
         </div>
         <xsl:apply-templates select="." mode="legend"/>

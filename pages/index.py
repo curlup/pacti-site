@@ -44,8 +44,8 @@ class Page(frontik.handler.PageHandler):
     	    for item in self.config.data:
                 page = etree.Element('page', name=item[0])
 
-                for id, name in (zip(item[1:], self.config.graphs_names)) :
-                    etree.SubElement(page, 'graph', id=str(id), name=name, query=query)
+                for id, name, yaxis in (zip(item[1:], self.config.graphs_names, self.config.graph_yaxis)) :
+                    etree.SubElement(page, 'graph', id=str(id), name=name, query=query, yaxis=yaxis)
 
                 self.doc.put(page)
         
